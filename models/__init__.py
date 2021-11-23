@@ -1,3 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from . import models, maintenance_extension
+from . import models
+from .maintenance_extension import MaintenanceExtension

@@ -1,2 +1,2 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_maintenance_checklist_maintenance_checklist,maintenance_checklist.maintenance_checklist,model_maintenance_checklist_maintenance_checklist,base.group_user,1,1,1,1
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_recurring_maintenance,access_recurring_maintenance,model_recurring_maintenance,base.group_user,1,1,1,1

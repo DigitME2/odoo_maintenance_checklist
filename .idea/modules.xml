@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/maintenance_checklist.iml" filepath="$PROJECT_DIR$/.idea/maintenance_checklist.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../odoo/.idea/odoo.iml" filepath="$PROJECT_DIR$/../../odoo/.idea/odoo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/maintenance_scheduler.iml" filepath="$PROJECT_DIR$/.idea/maintenance_scheduler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../odoo/.idea/odoo.iml" filepath="$PROJECT_DIR$/../odoo/.idea/odoo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/odoo_maintenance_checklist.iml" filepath="$PROJECT_DIR$/.idea/odoo_maintenance_checklist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../repeat_maintenance/.idea/odootutorialestate.iml" filepath="$PROJECT_DIR$/../repeat_maintenance/.idea/odootutorialestate.iml" />
     </modules>
   </component>
 </project>

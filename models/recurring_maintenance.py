@@ -30,7 +30,7 @@ class RecurringMaintenance(models.Model):
             # Check if there is a completed request in the eligible time period
             if recurring_request.repeat_units == "daily":
                 days = recurring_request.repeat_frequency
-            elif recurring_request.repeat_units == "monthly":
+            elif recurring_request.repeat_units == "weekly":
                 days = recurring_request.repeat_frequency * 7
             elif recurring_request.repeat_units == "monthly":
                 days = recurring_request.repeat_frequency * 30

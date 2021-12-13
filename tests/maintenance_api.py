@@ -24,9 +24,7 @@ print(result)
 
 # Mark the tasks as done (stage_id 4)
 edit_id = ids[0]
-models.execute_kw(db, uid, password, 'maintenance.request', 'write', [[edit_id], {
-    'stage_id': 4
-}])
+models.execute_kw(db, uid, password, 'maintenance.request', 'write', [[edit_id], {'stage_id': 4}])
 
 
 # Get the IDs of all maintenance requests that have stage_id of 1 (ready)

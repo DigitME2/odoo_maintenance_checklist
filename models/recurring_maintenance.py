@@ -4,8 +4,7 @@ from datetime import datetime, timedelta
 from odoo import models, fields
 
 PENDING_STAGE = 1
-OVERDUE_STAGE = 2
-DONE_STAGE = 4
+DONE_STAGE = 2
 
 
 class RecurringMaintenance(models.Model):
@@ -15,6 +14,7 @@ class RecurringMaintenance(models.Model):
 
     repeat_frequency = fields.Integer(string="Repeat Frequency")
     repeat_units = fields.Selection([("daily", "Days"),
+                                     ("weekly", "Weeks"),
                                      ("monthly", "Months"), ],
                                     string="Repeat Frequency Units",
                                     copy=False)
@@ -31,6 +31,8 @@ class RecurringMaintenance(models.Model):
             if recurring_request.repeat_units == "daily":
                 days = recurring_request.repeat_frequency
             elif recurring_request.repeat_units == "monthly":
+                days = recurring_request.repeat_frequency * 7
+            elif recurring_request.repeat_units == "monthly":
                 days = recurring_request.repeat_frequency * 30
             else:
                 days = 0
@@ -45,10 +47,10 @@ class RecurringMaintenance(models.Model):
             if completed_requests:
                 continue
 
-            # Check if there is already a pending or overdue request
+            # Check if there is already a pending request
             domain = [
                 ('recurring_maintenance_id', "=", recurring_request.id),
-                ('stage_id', 'in', [PENDING_STAGE, OVERDUE_STAGE])
+                ('stage_id', 'in', [PENDING_STAGE])
             ]
             pending_requests = self.env['maintenance.request'].search(args=domain)
             if pending_requests:
@@ -63,4 +65,6 @@ class RecurringMaintenance(models.Model):
                 'recurring_maintenance_id': recurring_request.id,
                 'user_id': recurring_request.user_id.id,
                 'maintenance_team_id': recurring_request.maintenance_team_id.id,
+                'repeat_frequency': recurring_request.repeat_frequency,
+                'repeat_units': recurring_request.repeat_units
             })
